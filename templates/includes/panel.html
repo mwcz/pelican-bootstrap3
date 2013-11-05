@@ -1,0 +1,50 @@
+{% macro write(
+    header_image,
+    header_text,
+    body_image,
+    body_title,
+    body_text,
+    footer_image,
+    footer_text,
+    link_url
+) %}
+
+<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    {% if link_url %}
+    <a href="{{ link_url }}">
+    {% endif %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {% if header_image %}
+                <img src="{{ header_image }}" alt="{{ body_title }} icon" class="img-responsive" />
+                {% endif %}
+                {% if header_text %}
+                <p>{{ header_text }}</p>
+                {% endif %}
+            </div>
+            <div class="panel-body">
+                <h3>{{ body_title }}</h3>
+                {% if body_image %}
+                <img src="{{ body_image }}" alt="{{ body_title }} icon" class="img-responsive" />
+                {% endif %}
+                {% if body_text %}
+                <p>{{ body_text }}</p>
+                {% endif %}
+            </div>
+            {% if footer_image or footer_text %}
+            <div class="panel-footer">
+                {% if footer_image %}
+                <img src="{{ footer_image }}" alt="{{ footer_title }} icon" class="img-responsive" />
+                {% endif %}
+                {% if footer_text %}
+                <p>{{ footer_text }}</p>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    {% if url %}
+    </a>
+    {% endif %}
+</div>
+
+{% endmacro %}
