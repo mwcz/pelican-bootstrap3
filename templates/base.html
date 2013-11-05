@@ -39,18 +39,18 @@
         {% endif %}
 
     {% endif %}
-    <!-- Bootstrap -->
-    {% if BOOTSTRAP_THEME %}
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
-    {% else %}
-        <link rel="stylesheet" href="{{ SITEURL }}/theme/css/bootstrap.min.css" type="text/css"/>
-    {% endif %}
-    <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme/css/pygments.css" rel="stylesheet">
+
+{% assets filters="less", output="css/colors.css", "less/colors.less" %}
+{% endassets %}
+{% assets output="css/styles.min.css", "css" %}
+    <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
+{% endassets %}
+
+    {# TODO integrate docutils css into ASSET_BUNDLES in pelicanconf... if I ever use it.  If I never use it, it's not worth the effort #}
     {% if DOCUTIL_CSS %}
         <link href="{{ SITEURL }}/theme/css/html4css1.css" rel="stylesheet">
     {% endif %}
-    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" type="text/css"/>
+
     <!-- JavaScript plugins (requires jQuery) -->
     <script src="http://code.jquery.com/jquery.js"></script>
 
