@@ -42,6 +42,8 @@
 
 {% assets filters="less", output="css/colors.css", "less/colors.less" %}
 {% endassets %}
+{% assets filters="less", output="css/clayto-styles.css", "less/clayto-styles.less" %}
+{% endassets %}
 {% assets output="css/styles.min.css", "css" %}
     <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
 {% endassets %}
@@ -53,38 +55,6 @@
 
     <!-- JavaScript plugins (requires jQuery) -->
     <script src="http://code.jquery.com/jquery.js"></script>
-
-    <!-- Custom CSS -->
-    <style type="text/css" media="screen">
-        body { font-family: 'Lato', sans-serif; }
-        @media (min-width: 768px) {
-            .container {
-                max-width: 930px;
-            }
-        }
-        .clayto-photo-list img {
-            width: 100%;
-        }
-        .clayto-project-list img {
-            margin: 0 auto;
-        }
-        .clayto-project-list h3 {
-            margin-top: 0;
-        }
-        .clayto-project-list .panel-body p:last-child {
-            margin-bottom: 0;
-        }
-        .clayto-project-list .panel-footer {
-            padding: 15px;
-        }
-        .clayto-project-list .panel-footer p {
-            margin: 0;
-        }
-        .clayto-project-list .panel-footer a {
-            margin-right: 4px;
-        }
-
-    </style>
 
     {% if FEED_ALL_ATOM %}
         <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
