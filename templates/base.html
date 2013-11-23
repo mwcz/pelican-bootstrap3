@@ -86,18 +86,18 @@
                 {% for title, link in MENUITEMS %}
                     <li><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
-                {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for page in PAGES %}
-                        <li><a href="{{ SITEURL }}/{{ page.url }}">
-                            {{ page.title }}
-                        </a></li>
-                    {% endfor %}
-                {% endif %}
                 {% if DISPLAY_CATEGORIES_ON_MENU %}
                     {% for cat, null in categories %}
                         <li {% if cat == category %}class="active"{% endif %}>
                             <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
                         </li>
+                    {% endfor %}
+                {% endif %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for page in PAGES %}
+                        <li><a href="{{ SITEURL }}/{{ page.url }}">
+                            {{ page.title }}
+                        </a></li>
                     {% endfor %}
                 {% endif %}
             </ul>
@@ -125,6 +125,7 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+<script src="{{ SITEURL }}/theme/js/moment.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="{{ SITEURL }}/theme/js/respond.min.js"></script>
