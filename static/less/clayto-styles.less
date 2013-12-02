@@ -1,3 +1,4 @@
+@import "bootstrap/variables.less";
 @import "bootstrap/mixins.less";
 
 body { font-family: 'Lato', sans-serif; }
@@ -118,4 +119,32 @@ img {
   .col-lg-6:nth-child(2n+1){
     clear: left;
   }
+}
+
+/*********************************************************************
+ *                           Related Posts                           *
+ *********************************************************************/
+
+.clayto-related-posts {
+    .make-row();
+    * {
+        font-size: 1.2rem;
+    }
+    article {
+        .make-xs-column(12);
+        .make-sm-column(6);
+        .make-lg-column(3);
+    }
+}
+
+/*********************************************************************
+ *                              Photos                               *
+ *********************************************************************/
+
+.clayto-photo-list {
+    width: 100%;
+    article {
+        padding: 30px;
+        margin: 0px auto;
+    }
 }

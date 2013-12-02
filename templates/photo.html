@@ -1,15 +1,6 @@
 {% extends "base.html" %}
 
-{% block extra_head %}
-{% if article.palette %}
-<style type="text/css">
-    body {
-        background-color: {{ article.palette }};
-    }
-</style>
-{% endif %}
-{% endblock %}
-
 {% block content %}
-<img data-spy="scroll" class="img-responsive" src="/static/images/photos/{{ article.photonum }}/big.jpg" />
+    {% import 'includes/photo.html' as photo %}
+    {{ photo.write(article, False) }}
 {% endblock %}

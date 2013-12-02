@@ -1,26 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
+
+    {# If this is a list of photos, apply the clayto-photo-list class #}
+    {% set photo_list = articles[0].category == 'photos' %}
+    {% if photo_list %}
+    <div class="row clayto-photo-list">
+        <style type="text/css" media="screen">
+            .clayto-container {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                max-width: none;
+            }
+        </style>
+    {% else %}
     <div class="row">
+    {% endif %}
+
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
             {% if article.category == 'photos' %}
 
-            {# TODO add black background to photos section #}
-            <article class="col-xs-12" style="background: {{ article.palette }};">
-                {#
-                <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-                #}
-                    {# Uncomment if you want to show comment counts #}
-                    {#{% include 'includes/comment_count.html' %}#}
-                <a href="{{ SITEURL }}/{{ article.url }}">
-                    <img class="img-responsive" src="{{ SITEURL }}/static/images/photos/{{ article.photonum }}/big.jpg" alt="{{ article.title }}" />
-                </a>
+                <article>
+                    {% import 'includes/photo.html' as photo %}
+                    {{ photo.write(article, True) }}
+                </article>
 
-                {% include "static/images/photos/{{ article.photonum }}/colors.pal" %}
-
-            </article>
-
-                <hr />
             {% else %}
                 <article class="col-xs-4 col-sm-6 col-lg-4">
                     <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
