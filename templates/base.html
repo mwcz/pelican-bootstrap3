@@ -96,9 +96,15 @@
                     {% endfor %}
                 {% endif %}
                 {% if DISPLAY_PAGES_ON_MENU %}
-                    {% for page in PAGES %}
-                        <li><a href="{{ SITEURL }}/{{ page.url }}">
-                            {{ page.title }}
+                    {# p == page isn't working right now.  I pulled it from the
+                       simple theme
+                       https://github.com/getpelican/pelican-themes/blob/master/simple-bootstrap/templates/base.html
+                       but maybe the feature was added in the pelican dev branch?
+                       or, more likely, because I'm using a raw template instead
+                       of a markdown file for my Projects page #}
+                    {% for p in PAGES %}
+                        <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
+                            {{ p.title }}
                         </a></li>
                     {% endfor %}
                 {% endif %}
