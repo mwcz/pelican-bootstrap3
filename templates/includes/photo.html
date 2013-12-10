@@ -43,15 +43,6 @@
 </style>
 {% endif %}
 
-{# old palette photos #}
-{% if article.palette %}
-<style type="text/css" scoped>
-    #clayto-photo-{{ article.photonum }} {
-        background-color: {{ article.palette }};
-    }
-</style>
-{% endif %}
-
 {% if link %}
     <a href="{{SITEURL}}/{{article.url}}">
 {% endif %}

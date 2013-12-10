@@ -55,7 +55,7 @@
     {% endif %}
 
     <!-- JavaScript plugins (requires jQuery) -->
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
     {% if FEED_ALL_ATOM %}
         <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
@@ -72,7 +72,7 @@
 </head>
 <body>
 {% block header %}
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -124,13 +124,9 @@
 </main>
 
 {% block footer %}
-{#
 <footer>
-    <div class="col-xs-12 well well-sm" id="sidebar">
-        {% include 'includes/sidebar.html' %}
-    </div>
+    <div class="navbar-default navbar-static-top clayto-footer"></div>
 </footer>
-#}
 {% endblock %}
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->

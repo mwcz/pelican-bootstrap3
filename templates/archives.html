@@ -4,7 +4,7 @@
         <h1>Archives for {{ SITENAME }}</h1>
 
         {% for group in dates | groupby('category') %}
-        <div class="col-xs-12 col-lg-6">
+        <div class="col-xs-12">
             <h2>
                 {{ group.grouper | capitalize }}
             </h2>

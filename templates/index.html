@@ -27,8 +27,12 @@
                 </article>
 
             {% else %}
-                <article class="col-xs-4 col-sm-6 col-lg-4">
-                    <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+                <article class="col-xs-12">
+                    <h2>
+                        <a href="{{ SITEURL }}/{{ article.url }}">
+                            {{ article.title }}
+                        </a>
+                    </h2>
                     <div class="summary">{{ article.summary }}
                         {# Uncomment if you want to show comment counts #}
                         {#{% include 'includes/comment_count.html' %}#}

@@ -13,15 +13,15 @@
                 </h1>
             </header>
             <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-                        {% include "includes/article_info.html" %}
-                    </div>
-                </div>
                 {{ article.content }}
             </div>
 
             <!-- /.entry-content -->
+        {# only include prev/next links if it's a photo #}
+        {% if article.category == 'photos' %}
+            {% include "includes/neighbors.html" %}
+        {% endif %}
+            {% include "includes/article_info.html" %}
             {% include "includes/addthis.html" %}
             {% include "includes/comments.html" %}
             {% include "includes/related_posts.html" %}
