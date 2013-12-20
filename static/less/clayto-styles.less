@@ -4,7 +4,19 @@
 @import "bootstrap/mixins.less";
 @import "bootstrap/panels.less";
 
-body { font-family: 'Lato', sans-serif; }
+body {
+    font-family: 'Lato', sans-serif;
+    background: rgba(255,255,255,1);
+    background: rgba(240,240,240,1);
+    /* Old Browsers */background: -moz-linear-gradient(left, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 100%);
+     /* FF3.6+ */background: -webkit-gradient(left top, right top, color-stop(0%, rgba(240,240,240,1)), color-stop(35%, rgba(255,255,255,1)), color-stop(65%, rgba(255,255,255,1)), color-stop(100%, rgba(240,240,240,1)));
+    /* Chrome,Safari4+  */background: -webkit-linear-gradient(left, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 100%);
+     /* Chrome10+,Safari5.1+ */background: -o-linear-gradient(left, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 100%);
+     /* Opera 11.10+ */background: -ms-linear-gradient(left, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 100%);
+     /* IE 10+ */background: linear-gradient(to right, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 35%, rgba(255,255,255,1) 65%, rgba(240,240,240,1) 100%);
+    /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#f0f0f0', GradientType=1 );
+    /* IE6-9 */
+}
 
 @media (min-width: 768px) {
     .container {
@@ -162,6 +174,7 @@ img {
 
 // remove excessive whitespace between navbar and page title
 .navbar {
+    background: url(/theme/images/background-navbar-white-noise.png);
 }
 .page-header {
     &, h1 {

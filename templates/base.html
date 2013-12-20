@@ -40,6 +40,14 @@
 
     {% endif %}
 
+    <!--[if gte IE 9]
+    <style type="text/css">
+        .gradient {
+            filter: none;
+        }
+    </style>
+    <![endif]-->
+
     {% assets filters="less", output="css/colors.css", "less/colors.less" %}
     {% endassets %}
     {% assets filters="less", output="css/clayto-styles.css", "less/clayto-styles.less" %}
