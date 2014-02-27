@@ -80,8 +80,8 @@
 </head>
 <body>
 {% block header %}
-<nav class="clayto-navbar navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
+<div class="container">
+    <nav class="clayto-navbar navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -91,7 +91,7 @@
             </button>
             <a href="{{ SITEURL }}" class="navbar-brand">{{ SITENAME }}</a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-responsive-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 {% for title, link in MENUITEMS %}
                     <li><a href="{{ link }}">{{ title }}</a></li>
@@ -122,8 +122,8 @@
             </ul>
         </div>
         <!-- /.navbar-collapse -->
-    </div>
-</nav>
+    </nav>
+</div>
 {% endblock header %}
 <!-- /.navbar -->
 <main role="main" class="container clayto-container">
@@ -132,9 +132,6 @@
 </main>
 
 {% block footer %}
-<footer>
-    <div class="navbar-default navbar-static-top clayto-footer"></div>
-</footer>
 {% endblock %}
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
