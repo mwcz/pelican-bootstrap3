@@ -5,18 +5,20 @@
 
     {% if articles %}
         {% for article in (articles_page.object_list if articles_page else articles) %}
-            <article class="col-xs-12">
-                <h2>
-                    <a href="{{ SITEURL }}/{{ article.url }}">
-                        {{ article.title }}
-                    </a>
-                </h2>
-                <div class="summary">{{ article.summary }}
-                    {# Uncomment if you want to show comment counts #}
-                    {#{% include 'includes/comment_count.html' %}#}
-                    <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
-                </div>
-            </article>
+            <div class="col-xs-12">
+                <article>
+                    <h2>
+                        <a href="{{ SITEURL }}/{{ article.url }}">
+                            {{ article.title }}
+                        </a>
+                    </h2>
+                    <div class="summary">{{ article.summary }}
+                        {# Uncomment if you want to show comment counts #}
+                        {#{% include 'includes/comment_count.html' %}#}
+                        <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
+                    </div>
+                </article>
+            </div>
         {% endfor %}
         </div> <!-- /.row -->
     {% endif %}

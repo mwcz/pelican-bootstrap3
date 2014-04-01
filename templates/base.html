@@ -9,12 +9,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph tags -->
     {% if USE_OPEN_GRAPH is not defined %}
         {% set USE_OPEN_GRAPH = True %}
     {% endif %}
 
     {% if USE_OPEN_GRAPH %}
+        <!-- Open Graph tags -->
         {% if OPEN_GRAPH_FB_APP_ID %}
             <meta property="fb:app_id" content="{{ OPEN_GRAPH_FB_APP_ID }}"/>
         {% endif %}
@@ -127,10 +127,8 @@
 {% endblock header %}
 <!-- /.navbar -->
 <main role="main" class="container">
-    <div class="clayto-container">
     {% block content %}
     {% endblock %}
-    </div>
 </main>
 
 {% block footer %}
