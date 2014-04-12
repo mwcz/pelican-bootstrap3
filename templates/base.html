@@ -48,24 +48,14 @@
     </style>
     <![endif]-->
 
-    {% assets filters="less", output="css/colors.css", "less/colors.less" %}
-    {% endassets %}
-    {% assets filters="less", output="css/clayto-styles.css", "less/clayto-styles.less" %}
-    {% endassets %}
     {% if DEBUG %}
         {# Pull in CSS files individually in debug mode #}
-        {% assets 
-            "css/bootstrap.flatly.min.css",
-            "css/font-awesome.min.css",
-            "css/html4css1.css",
-            "css/pygments.css",
-            "css/colors.css",
-            "css/clayto-styles.css" %}
+        {% assets "css" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% else %}
         {# Concatenate and minify all CSS files in production mode #}
-        {% assets output="css/styles.min.css", "css" %}
+        {% assets filters="cssutils", output="css/styles.min.css", "css" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% endif %}
