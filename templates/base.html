@@ -48,6 +48,8 @@
     </style>
     <![endif]-->
 
+    {% assets filters="less", output="css/clayto-styles.css", "less/clayto-styles.less" %}
+    {% endassets %}
     {% if DEBUG %}
         {# Pull in CSS files individually in debug mode #}
         {% assets "css" %}
@@ -55,7 +57,7 @@
         {% endassets %}
     {% else %}
         {# Concatenate and minify all CSS files in production mode #}
-        {% assets filters="cssutils", output="css/styles.min.css", "css" %}
+        {% assets output="css/styles.min.css", "css" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% endif %}
