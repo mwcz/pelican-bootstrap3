@@ -17,10 +17,10 @@
     #}
         {% include "includes/article_info.html" %}
         {% include "includes/addthis.html" %}
-        {% include "includes/comments.html" %}
         {% if 'related_posts' in PLUGINS %}
             {% include "includes/related_posts.html" %}
         {% endif %}
     </article>
+    {% include "includes/comments.html" %}
 
 {% endblock %}
