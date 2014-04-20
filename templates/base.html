@@ -48,6 +48,8 @@
     </style>
     <![endif]-->
 
+    {% assets filters="less", output="css/bootstrap.flatly.min.css", "less/bootswatch/flatly/bootstrap.less" %}
+    {% endassets %}
     {% assets filters="less", output="css/clayto-styles.css", "less/clayto-styles.less" %}
     {% endassets %}
     {% if DEBUG %}
@@ -60,12 +62,6 @@
         {% assets output="css/styles.min.css", "css" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
-    {% endif %}
-
-
-    {# TODO integrate docutils css into ASSET_BUNDLES in pelicanconf... if I ever use it.  If I never use it, it's not worth the effort #}
-    {% if DOCUTIL_CSS %}
-        <link href="{{ SITEURL }}/theme/css/html4css1.css" rel="stylesheet">
     {% endif %}
 
     <!-- JavaScript plugins (requires jQuery) -->
