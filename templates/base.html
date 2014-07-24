@@ -48,18 +48,14 @@
     </style>
     <![endif]-->
 
-    {% assets filters="less", output="css/bootstrap.flatly.min.css", "less/bootswatch/flatly/bootstrap.less" %}
-    {% endassets %}
-    {% assets filters="less", output="css/clayto-styles.css", "less/clayto-styles.less" %}
-    {% endassets %}
     {% if DEBUG %}
         {# Pull in CSS files individually in debug mode #}
-        {% assets "css" %}
+        {% assets "bootstrap", "pbp" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% else %}
         {# Concatenate and minify all CSS files in production mode #}
-        {% assets output="css/styles.min.css", "css" %}
+        {% assets output="css/styles.min.css", "bootstrap", "pbp" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% endif %}
@@ -83,7 +79,7 @@
 <body>
 {% block header %}
 <div class="container">
-    <nav class="clayto-navbar navbar navbar-default" role="navigation">
+    <nav class="pbp-navbar navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
