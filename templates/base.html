@@ -79,47 +79,53 @@
 <body>
 {% block header %}
 <div class="container">
-    <nav class="pbp-navbar navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="{{ SITEURL }}" class="navbar-brand">{{ SITENAME }}</a>
-        </div>
-        <div class="collapse navbar-collapse navbar-responsive-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
-                {% if DISPLAY_CATEGORIES_ON_MENU %}
-                    {% for cat, null in categories %}
-                        <li {% if cat == category %}class="active"{% endif %}>
-                            <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat | capitalize }}</a>
-                        </li>
-                    {% endfor %}
-                {% endif %}
-                {% if DISPLAY_PAGES_ON_MENU %}
-                    {# p == page isn't working right now.  I pulled it from the
-                       simple theme
-                       https://github.com/getpelican/pelican-themes/blob/master/simple-bootstrap/templates/base.html
-                       but maybe the feature was added in the pelican dev branch?
-                       or, more likely, because I'm using a raw template instead
-                       of a markdown file for my Projects page #}
-                    {% for p in PAGES %}
-                        <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">
-                            {{ p.title }}
-                        </a></li>
-                    {% endfor %}
-                {% endif %}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="icon-th-list"></i>Archives</a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+    <nav class="pbp-navbar" role="navigation">
+        <!-- <img class="pbp-logo" src="/theme/images/logo.svg" alt="the Pale Blue Pixel Logo"/> -->
+        <svg 
+            class               = "pbp-logo"
+            width               = "64"
+            height              = "64"
+            xmlns               = "http://www.w3.org/2000/svg"
+            xmlns:xlink         = "http://www.w3.org/1999/xlink"
+            viewBox             = "0 0 10 10"
+            preserveAspectRatio = "slice">
+            <svg
+                xmlns:dc  = "http://purl.org/dc/elements/1.1/"
+                xmlns:cc  = "http://creativecommons.org/ns#"
+                xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:svg = "http://www.w3.org/2000/svg"
+                xmlns     = "http://www.w3.org/2000/svg"
+                version   = "1.1"
+                width     = "10"
+                height    = "10"
+                id        = "svg2">
+                <defs id="defs4" />
+                    <metadata id="metadata7">
+                    <rdf:RDF>
+                    <cc:Work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                    <dc:title></dc:title>
+                    </cc:Work>
+                    </rdf:RDF>
+                    </metadata>
+                    <g
+                        transform="translate(-385,-467.375)"
+                        id="layer1">
+                        <path
+                        d="m 385,467.375 0,10 10,0 0,-10 -10,0 z m 1,1 8,0 0,8 -8,0 0,-8 z"
+                        id="rect2995"
+                        style="fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+                        <path
+                        d="m 391,472.36218 a 1,1 0 1 1 -2,0 1,1 0 1 1 2,0 z"
+                        id="path3002"
+                        style="fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
+                    </g>
+                </svg>
+                <filter id="pictureFilter" >
+                    <feGaussianBlur stdDeviation="2" />
+                </filter> 
+        </svg>
     </nav>
 </div>
 {% endblock header %}

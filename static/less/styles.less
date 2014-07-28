@@ -3,28 +3,24 @@
 
 @import "colors.less";
 @import "fonts.less";
+@import "bootstrap-col-clear.less";
+@import "elements/elements.less";
 @import "bootswatch/@{bootswatch-theme}/mixins.less";
 @import "bootswatch/@{bootswatch-theme}/variables.less";
 @import "bootswatch/@{bootswatch-theme}/panels.less";
 
 body {
-    font-family: 'Lato';
-    font-size: @pbp-base-font-size;
-    background-color: @pbp-bg-color;
-    color: @pbp-fg-color;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    background-attachment: fixed;
-    padding-bottom: 20px;
+    font-family      : 'Lato';
+    font-size        : @pbp-base-font-size;
+    background-color : @pbp-bg-color;
+    color            : @pbp-fg-color;
+    margin           : 0;
 }
 
 /*********************************************************************
  *                    bootstrap.flatly overrides                     *
  *********************************************************************/
-blockquote {
-    border-left: 5px solid @pbp-pale-blue;
-}
+blockquote { border-left: 5px solid @pbp-pale-blue; }
 
 @media (min-width: 768px) {
     .container {
@@ -33,20 +29,24 @@ blockquote {
 }
 a {
   color: @pbp-pale-blue;
-  &:visited { color: darken(@pbp-pale-blue, 18%); }
+  &:hover         { color: lighten(@pbp-pale-blue, 18%); }
+  &:visited       { color: darken(@pbp-pale-blue, 18%); }
+  &:visited:hover { color: lighten(@pbp-pale-blue, 18%); }
 }
 p {
     margin: 0 0 20.5px;
 }
 
-.pbp-navbar.navbar .nav li.active a {
-    background-color: @gray-darker !important;
-}
 code {
-    background-color: darken(@pbp-bg-color, 10%);
-    color: darken(@pbp-fg-color, 10%);
-    padding: 4px 3px 3px 4px;
-    margin: 0px 1.2px;
+    background-color : darken(@pbp-bg-color, 5%);
+    color            : darken(@pbp-fg-color, 5%);
+    padding          : 4px 3px 3px 4px;
+    margin           : 0px 1.2px;
+}
+
+.page-header {
+    margin: 42px 0px 8px;
+    border-bottom: none;
 }
 
 /*********************************************************************
@@ -55,12 +55,12 @@ code {
 
 /* Flat-inspired full width element */
 .fullwidth {
-    padding: @padding-large-vertical;
-    border-radius: 0;
-    width: calc(~"100% + @{padding-large-vertical} * 2");
-    position: relative;
-    left: -@padding-large-vertical;
-    border: none;
+    padding       : @padding-large-vertical;
+    border-radius : 0;
+    width         : calc(~"100% + @{padding-large-vertical} * 2");
+    position      : relative;
+    left          : -@padding-large-vertical;
+    border        : none;
 }
 
 img {
@@ -79,27 +79,27 @@ article, section {
 }
 
 .entry-content a {
-    font-weight: bold;
-    text-decoration: none !important;
-    border-bottom: 1px dotted;
+    font-weight     : bold;
+    text-decoration : none !important;
+    border-bottom   : 1px dotted;
 }
 
 .entry-content a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid;
+    text-decoration : none;
+    border-bottom   : 1px solid;
 }
 
 .entry-content img {
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
+    max-width : 100%;
+    height    : auto;
+    margin    : 0 auto;
 }
 
 .highlight pre {
-    background-color: darken(@pbp-bg-color, 18%);
-    color: darken(@pbp-fg-color, 18%);
-    border: none;
-    border-radius: 0;
+    background-color : darken(@pbp-bg-color, 18%);
+    color            : darken(@pbp-fg-color, 18%);
+    border           : none;
+    border-radius    : 0;
 }
 
 
@@ -147,99 +147,37 @@ article, section {
         padding-bottom: 0;
     }
 }
-
-/* Automatically clear bootstrap columns */
-/*  Tablet  */
-@media (min-width:768px){
-
-  /* Column clear fix */
-  .col-lg-1:nth-child(12n+1),
-  .col-lg-2:nth-child(6n+1),
-  .col-lg-3:nth-child(4n+1),
-  .col-lg-4:nth-child(3n+1),
-  .col-lg-6:nth-child(2n+1),
-  .col-md-1:nth-child(12n+1),
-  .col-md-2:nth-child(6n+1),
-  .col-md-3:nth-child(4n+1),
-  .col-md-4:nth-child(3n+1),
-  .col-md-6:nth-child(2n+1){
-    clear: none;
-  }
-  .col-sm-1:nth-child(12n+1),
-  .col-sm-2:nth-child(6n+1),
-  .col-sm-3:nth-child(4n+1),
-  .col-sm-4:nth-child(3n+1),
-  .col-sm-6:nth-child(2n+1){
-    clear: left;
-  }
+/*********************************************************************
+ *                              Navbar                               *
+ *********************************************************************/
+.pbp-navbar {
+    height              : 64px;
+    width               : 64px;
+    margin              : 32px 0 32px 50%;
+    .translate(-50%, 0);
 }
-
-
-/*  Medium Desktop  */
-@media (min-width:992px){
-
-  /* Column clear fix */
-  .col-lg-1:nth-child(12n+1),
-  .col-lg-2:nth-child(6n+1),
-  .col-lg-3:nth-child(4n+1),
-  .col-lg-4:nth-child(3n+1),
-  .col-lg-6:nth-child(2n+1),
-  .col-sm-1:nth-child(12n+1),
-  .col-sm-2:nth-child(6n+1),
-  .col-sm-3:nth-child(4n+1),
-  .col-sm-4:nth-child(3n+1),
-  .col-sm-6:nth-child(2n+1){
-    clear: none;
-  }
-  .col-md-1:nth-child(12n+1),
-  .col-md-2:nth-child(6n+1),
-  .col-md-3:nth-child(4n+1),
-  .col-md-4:nth-child(3n+1),
-  .col-md-6:nth-child(2n+1){
-    clear: left;
-  }
-}
-
-
-/*  Large Desktop  */
-@media (min-width:1200px){
-
-  /* Column clear fix */
-  .col-md-1:nth-child(12n+1),
-  .col-md-2:nth-child(6n+1),
-  .col-md-3:nth-child(4n+1),
-  .col-md-4:nth-child(3n+1),
-  .col-md-6:nth-child(2n+1),
-  .col-sm-1:nth-child(12n+1),
-  .col-sm-2:nth-child(6n+1),
-  .col-sm-3:nth-child(4n+1),
-  .col-sm-4:nth-child(3n+1),
-  .col-sm-6:nth-child(2n+1){
-    clear: none;
-  }
-  .col-lg-1:nth-child(12n+1),
-  .col-lg-2:nth-child(6n+1),
-  .col-lg-3:nth-child(4n+1),
-  .col-lg-4:nth-child(3n+1),
-  .col-lg-6:nth-child(2n+1){
-    clear: left;
-  }
+.pbp-logo {
+    #rect2995 {
+        fill: lighten(@pbp-bg-color, 18%);
+        .transition(0.309s);
+    }
+    #path3002 {
+        fill: @pbp-pale-blue;
+        .transition(0.618s);
+    }
+    &:hover {
+        #rect2995 {
+            fill: @pbp-bg-color;
+        }
+        #path3002 {
+            // filter: url(#pictureFilter);
+        }
+    }
 }
 
 /*********************************************************************
  *                              Header                               *
  *********************************************************************/
-
-// remove excessive whitespace between navbar and page title
-.pbp-navbar {
-    background: #3f3f3f;
-    border-radius: 0 !important;
-    border: none !important;
-
-    a {
-        text-shadow: 0.2px 2.2px 7px rgba(0,0,0,0.4)
-    }
-}
 
 .page-header {
     &, h1 {
@@ -252,8 +190,8 @@ section h1 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: @font-family-serif;
-	letter-spacing: -0.04em;
+    font-family    : @font-family-serif;
+	letter-spacing : -0.04em;
 }
 
 /*********************************************************************
@@ -296,3 +234,4 @@ h1, h2, h3, h4, h5, h6 {
 #comments {
     h2 { margin-top: 0; }
 }
+
