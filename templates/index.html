@@ -7,16 +7,23 @@
         {% for article in (articles_page.object_list if articles_page else articles) %}
             <div class="col-xs-12">
                 <article>
+                    {% if article.image %}
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        <img class="pbp-post-thumbnail" src="{{ article.image }}" />
+                    </a>
+                    {% endif %}
                     <h2>
                         <a href="{{ SITEURL }}/{{ article.url }}">
                             {{ article.title }}
                         </a>
                     </h2>
-                    <div class="summary">{{ article.summary }}
+                    {% if article.summary %}
+                    <div class="summary">
+                        {{ article.summary }}
                         {# Uncomment if you want to show comment counts #}
                         {#{% include 'includes/comment_count.html' %}#}
-                        <a class="btn btn-default btn-xs" href="{{ SITEURL }}/{{ article.url }}">more ...</a>
                     </div>
+                    {% endif %}
                 </article>
             </div>
         {% endfor %}

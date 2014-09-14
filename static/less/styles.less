@@ -1,38 +1,58 @@
 
 @bootswatch-theme: "flatly";
 
-@import "colors.less";
-@import "fonts.less";
-@import "bootstrap-col-clear.less";
-@import "elements/elements.less";
-@import "bootswatch/@{bootswatch-theme}/mixins.less";
-@import "bootswatch/@{bootswatch-theme}/variables.less";
-@import "bootswatch/@{bootswatch-theme}/panels.less";
+@import "colors";
+@import "fonts";
+@import "bootstrap-col-clear";
+@import "elements/elements";
+@import "bootswatch/@{bootswatch-theme}/mixins";
+@import "bootswatch/@{bootswatch-theme}/variables";
+@import "bootswatch/@{bootswatch-theme}/panels";
 
 body {
-    font-family      : 'Lato';
+    font-family      : @pbp-font-body;
     font-size        : @pbp-base-font-size;
     background-color : @pbp-bg-color;
     color            : @pbp-fg-color;
     margin           : 0;
+    padding          : 0;
 }
 
 /*********************************************************************
  *                    bootstrap.flatly overrides                     *
  *********************************************************************/
-blockquote { border-left: 5px solid @pbp-pale-blue; }
+blockquote {
+    border-left: 5px solid lighten(@pbp-bg-color, 4%);
+    color: @pbp-pale-blue;
+}
 
 @media (min-width: 768px) {
     .container {
-        max-width: 930px;
+        max-width: 830px;
     }
 }
 a {
-  color: @pbp-pale-blue;
-  &:hover         { color: lighten(@pbp-pale-blue, 18%); }
-  &:visited       { color: darken(@pbp-pale-blue, 18%); }
-  &:visited:hover { color: lighten(@pbp-pale-blue, 18%); }
+
+    text-decoration : none !important;
+    border-bottom   : 1px dotted;
+    color           : @pbp-pale-blue;
+    outline-color   : lighten(@pbp-bg-color, 32%);
+    border-color    : lighten(@pbp-bg-color, 16%);
+
+    &:hover         {
+        color           : lighten(@pbp-pale-blue, 16%);
+        border-bottom   : 1px solid;
+        border-color    : lighten(@pbp-bg-color, 32%);
+    }
+    &:visited       {
+        color: darken(@pbp-pale-blue, 16%); 
+    }
+    &:visited:hover {
+        color: lighten(@pbp-pale-blue, 16%); 
+    }
+
 }
+
 p {
     margin: 0 0 20.5px;
 }
@@ -40,13 +60,25 @@ p {
 code {
     background-color : darken(@pbp-bg-color, 5%);
     color            : darken(@pbp-fg-color, 5%);
-    padding          : 4px 3px 3px 4px;
+    padding          : 4px 3px 2px 4px;
     margin           : 0px 1.2px;
+}
+pre, .highlight, code {
+    font-family      : @pbp-font-mono;
 }
 
 .page-header {
     margin: 42px 0px 8px;
     border-bottom: none;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+hr {
+    border-color: lighten(@pbp-bg-color, 16%);
 }
 
 /*********************************************************************
@@ -78,17 +110,6 @@ article, section {
     .clearfix();
 }
 
-.entry-content a {
-    font-weight     : bold;
-    text-decoration : none !important;
-    border-bottom   : 1px dotted;
-}
-
-.entry-content a:hover {
-    text-decoration : none;
-    border-bottom   : 1px solid;
-}
-
 .entry-content img {
     max-width : 100%;
     height    : auto;
@@ -96,10 +117,17 @@ article, section {
 }
 
 .highlight pre {
-    background-color : darken(@pbp-bg-color, 18%);
-    color            : darken(@pbp-fg-color, 18%);
+    background-color : darken(@pbp-bg-color, 16%);
+    color            : darken(@pbp-fg-color, 16%);
     border           : none;
     border-radius    : 0;
+}
+
+.pbp-post-thumbnail {
+    .make-xs-column(12);
+    .make-sm-column(4);
+    .make-md-column(4);
+    .make-lg-column(3);
 }
 
 
@@ -107,6 +135,23 @@ article, section {
 /*********************************************************************
  *                           Project list                            *
  *********************************************************************/
+
+.pbp-project-summary {
+    margin-bottom: 2rem;
+    &:last-child { margin-bottom: inherit; }
+
+    .clearfix();
+
+    & .pbp-project-summary-image {
+        .make-sm-column(3);
+        .make-xs-column(12);
+    }
+    & .pbp-project-summary-description {
+        h3 { display: inline-block; }
+        .make-sm-column(9);
+        .make-xs-column(12);
+    }
+}
 
 .pbp-project-list {
     * {
@@ -153,26 +198,61 @@ article, section {
 .pbp-navbar {
     height              : 64px;
     width               : 64px;
-    margin              : 32px 0 32px 50%;
+    margin              : 32px 0 16px 50%;
     .translate(-50%, 0);
 }
 .pbp-logo {
-    #rect2995 {
-        fill: lighten(@pbp-bg-color, 18%);
-        .transition(0.309s);
-    }
-    #path3002 {
-        fill: @pbp-pale-blue;
-        .transition(0.618s);
-    }
-    &:hover {
-        #rect2995 {
-            fill: @pbp-bg-color;
-        }
-        #path3002 {
-            // filter: url(#pictureFilter);
-        }
-    }
+
+    width: 100%;
+    height: 100%;
+
+    // position: relative;
+    // height: 64px;
+    // width: 64px;
+    // display: block;
+
+    // .smaller {
+    //     width        : 2px;
+    //     height       : 2px;
+    //     background   : @pbp-pale-blue;
+    //     border-color : @pbp-bg-color;
+    //     border       : none;
+    //     z-index      : 2;
+    // }
+    // .larger {
+    //     width      : 100%;
+    //     height     : 100%;
+    //     border     : 6px solid lighten(@pbp-bg-color, 16%);
+    //     background : transparent;
+    //     z-index    : 1;
+    // }
+
+    // .circle,
+    // .square {
+    //     position      : absolute;
+    //     left          : 50%;
+    //     top           : 50%;
+    //     .translate(-50%, -50%);
+    //     .transition(0.309s);
+    // }
+
+    // .circle {
+    //     .smaller;
+    //     border-radius: 50%;
+    // }
+    // .square {
+    //     .larger;
+    // }
+
+    // &:hover {
+    //     .circle {
+    //         .larger;
+    //     }
+    //     .square {
+    //         .smaller;
+    //     }
+    // }
+
 }
 
 /*********************************************************************
@@ -190,8 +270,7 @@ section h1 {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family    : @font-family-serif;
-	letter-spacing : -0.04em;
+    font-family     : @pbp-font-title;
 }
 
 /*********************************************************************
@@ -222,8 +301,7 @@ h1, h2, h3, h4, h5, h6 {
 // Don't let summary images get too big
 .summary {
     img {
-        max-width: 168px;
-        .panel;
+        max-width: 512px;
     }
 }
 

@@ -50,18 +50,18 @@
 
     {% if DEBUG %}
         {# Pull in CSS files individually in debug mode #}
-        {% assets "bootstrap", "pbp" %}
+        {% assets "pbp" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% else %}
         {# Concatenate and minify all CSS files in production mode #}
-        {% assets output="css/styles.min.css", "bootstrap", "pbp" %}
+        {% assets output="css/styles.min.css", "pbp" %}
             <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
         {% endassets %}
     {% endif %}
 
     <!-- JavaScript plugins (requires jQuery) -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
 
     {% if FEED_ALL_ATOM %}
         <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
@@ -80,52 +80,10 @@
 {% block header %}
 <div class="container">
     <nav class="pbp-navbar" role="navigation">
-        <!-- <img class="pbp-logo" src="/theme/images/logo.svg" alt="the Pale Blue Pixel Logo"/> -->
-        <svg 
-            class               = "pbp-logo"
-            width               = "64"
-            height              = "64"
-            xmlns               = "http://www.w3.org/2000/svg"
-            xmlns:xlink         = "http://www.w3.org/1999/xlink"
-            viewBox             = "0 0 10 10"
-            preserveAspectRatio = "slice">
-            <svg
-                xmlns:dc  = "http://purl.org/dc/elements/1.1/"
-                xmlns:cc  = "http://creativecommons.org/ns#"
-                xmlns:rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                xmlns:svg = "http://www.w3.org/2000/svg"
-                xmlns     = "http://www.w3.org/2000/svg"
-                version   = "1.1"
-                width     = "10"
-                height    = "10"
-                id        = "svg2">
-                <defs id="defs4" />
-                    <metadata id="metadata7">
-                    <rdf:RDF>
-                    <cc:Work rdf:about="">
-                    <dc:format>image/svg+xml</dc:format>
-                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                    <dc:title></dc:title>
-                    </cc:Work>
-                    </rdf:RDF>
-                    </metadata>
-                    <g
-                        transform="translate(-385,-467.375)"
-                        id="layer1">
-                        <path
-                        d="m 385,467.375 0,10 10,0 0,-10 -10,0 z m 1,1 8,0 0,8 -8,0 0,-8 z"
-                        id="rect2995"
-                        style="fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-                        <path
-                        d="m 391,472.36218 a 1,1 0 1 1 -2,0 1,1 0 1 1 2,0 z"
-                        id="path3002"
-                        style="fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate" />
-                    </g>
-                </svg>
-                <filter id="pictureFilter" >
-                    <feGaussianBlur stdDeviation="2" />
-                </filter> 
-        </svg>
+        
+        <a href="/">
+            <img class="pbp-logo" src="{{ SITEURL }}/theme/images/logo.svg" />
+        </a>
     </nav>
 </div>
 {% endblock header %}

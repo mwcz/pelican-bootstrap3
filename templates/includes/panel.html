@@ -9,42 +9,37 @@
     link_url
 ) %}
 
-<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
-    {% if link_url %}
-    <a href="{{ link_url }}">
-    {% endif %}
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                {% if header_image %}
+<div class="pbp-project-summary">
+        <div class="pbp-project-summary-image">
+        {% if header_image %}
+            {% if link_url %}
+            <a href="{{ link_url }}">
+            {% endif %}
                 <img src="{{ header_image }}" alt="{{ body_title }} icon" class="img-responsive" />
-                {% endif %}
-                {% if header_text %}
-                <p>{{ header_text }}</p>
-                {% endif %}
-            </div>
-            <div class="panel-body">
+            {% if link_url %}
+            </a>
+            {% endif %}
+        {% endif %}
+        {% if header_text %}
+            <p>{{ header_text }}</p>
+        {% endif %}
+        </div>
+        <div class="pbp-project-summary-description">
+            {% if link_url %}
+            <a href="{{ link_url }}">
+            {% endif %}
                 <h3>{{ body_title }}</h3>
-                {% if body_image %}
-                <img src="{{ body_image }}" alt="{{ body_title }} icon" class="img-responsive" />
-                {% endif %}
-                {% if body_text %}
-                <p>{{ body_text }}</p>
-                {% endif %}
-            </div>
-            {% if footer_image or footer_text %}
-            <div class="panel-footer">
-                {% if footer_image %}
-                <img src="{{ footer_image }}" alt="{{ footer_title }} icon" class="img-responsive" />
-                {% endif %}
-                {% if footer_text %}
-                <p>{{ footer_text }}</p>
-                {% endif %}
-            </div>
+            {% if link_url %}
+            </a>
+            {% endif %}
+
+            {% if body_image %}
+            <img src="{{ body_image }}" alt="{{ body_title }} icon" class="img-responsive" />
+            {% endif %}
+            {% if body_text %}
+            <p>{{ body_text }}</p>
             {% endif %}
         </div>
-    {% if link_url %}
-    </a>
-    {% endif %}
 </div>
 
 {% endmacro %}
