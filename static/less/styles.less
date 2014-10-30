@@ -9,6 +9,12 @@
 @import "bootswatch/@{bootswatch-theme}/variables";
 @import "bootswatch/@{bootswatch-theme}/panels";
 
+html {
+    // force scrollbar to avoid left-shift when navigating from a page without
+    // a scrollbar to a page with a scrollbar.
+    overflow-y: scroll;
+}
+
 body {
     font-family      : @pbp-font-body;
     font-size        : @pbp-base-font-size;
@@ -53,18 +59,85 @@ a {
 
 }
 
+.btn {
+    .transition(0.1618s);
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.btn-default {
+    background-color : darken(@pbp-bg-color, 4%);
+    border-color     : lighten(@pbp-bg-color, 8%);
+
+    &:hover,
+    &:focus {
+        background-color : lighten(@pbp-bg-color, 0%);
+        border-color     : lighten(@pbp-bg-color, 8%);
+    }
+
+    &:active {
+        background-color : darken(@pbp-bg-color, 4%);
+        border-color     : lighten(@pbp-bg-color, 8%);
+    }
+}
+
+.pagination {
+
+    position: relative;
+    left: 50%;
+    .translate(-50%, 0);
+
+    & > li > a,
+    & > li > span {
+        background-color: darken(@pbp-bg-color, 4%);
+        border-width: 0;
+
+        &:hover {
+            background-color: lighten(@pbp-bg-color, 4%);
+        }
+    }
+
+    & > .active {
+        & > a,
+        & > span,
+        & > a:hover,
+        & > span:hover,
+        & > a:focus,
+        & > span:focus {
+            background-color: darken(@pbp-bg-color, 7%);
+            border-width: 0;
+        }
+    }
+
+    & > .disabled {
+        & > a,
+        & > span,
+        & > a:hover,
+        & > span:hover,
+        & > a:focus,
+        & > span:focus {
+            background-color: darken(@pbp-bg-color, 4%);
+            border-width: 0;
+            color: lighten(@pbp-bg-color, 4%);
+        }
+    }
+}
+
 p {
     margin: 0 0 20.5px;
 }
 
 code {
-    background-color : darken(@pbp-bg-color, 5%);
-    color            : darken(@pbp-fg-color, 5%);
     padding          : 4px 3px 2px 4px;
     margin           : 0px 1.2px;
 }
-pre, .highlight, code {
+pre, .highlight, code, pre code {
     font-family      : @pbp-font-mono;
+    background-color : darken(@pbp-bg-color, 5%);
+    color            : darken(@pbp-fg-color, 5%);
+    border           : none;
 }
 
 .page-header {
@@ -96,7 +169,7 @@ hr {
 }
 
 img {
-    .img-responsive();
+    .img-responsive() !important;
 }
 
 /*********************************************************************
@@ -271,6 +344,7 @@ section h1 {
 
 h1, h2, h3, h4, h5, h6 {
     font-family     : @pbp-font-title;
+    color           : darken(@pbp-pale-blue, 16%);
 }
 
 /*********************************************************************
@@ -280,6 +354,26 @@ h1, h2, h3, h4, h5, h6 {
     height: 60px;
     argin-top: @grid-gutter-width;
     background: url(/theme/images/background-navbar-white-noise.png);
+}
+
+/*********************************************************************
+ *                               Math                                *
+ *********************************************************************/
+
+figure {
+    margin: 3rem 0;
+    figcaption {
+        text-align : center;
+        font-size  : 0.8 * @pbp-base-font-size;
+        color      : darken(@pbp-pale-blue, 16%);
+
+    }
+    [role=math] {
+        padding : 0.5rem 0;
+        text-align: center;
+        &:first-child { padding-top: 3rem; }
+        &:last-child { padding-bottom: 3rem; }
+    }
 }
 
 /*********************************************************************
