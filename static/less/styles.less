@@ -24,12 +24,23 @@ body {
     padding          : 0;
 }
 
+blockquote cite::before {
+    content: '—';
+    color: lighten(@pbp-bg-color, 16%);
+}
+
 /*********************************************************************
  *                    bootstrap.flatly overrides                     *
  *********************************************************************/
 blockquote {
-    border-left: 5px solid lighten(@pbp-bg-color, 4%);
+    border-left: 5px solid lighten(@pbp-bg-color, 8%);
     color: @pbp-pale-blue;
+    p {
+        font-weight: 400;
+    }
+    cite {
+        font-size: 0.8 * @pbp-base-font-size;
+    }
 }
 
 @media (min-width: 768px) {
@@ -49,6 +60,10 @@ a {
         color           : lighten(@pbp-pale-blue, 16%);
         border-bottom   : 1px solid;
         border-color    : lighten(@pbp-bg-color, 32%);
+    }
+    &:focus {
+        color         : lighten(@pbp-pale-blue, 16%);
+        outline-color : @pbp-pale-blue;
     }
     &:visited       {
         color: darken(@pbp-pale-blue, 16%); 
@@ -94,8 +109,10 @@ a {
         background-color: darken(@pbp-bg-color, 4%);
         border-width: 0;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: lighten(@pbp-bg-color, 4%);
+            color: darken(@pbp-fg-color, 4%);
         }
     }
 
@@ -107,6 +124,7 @@ a {
         & > a:focus,
         & > span:focus {
             background-color: darken(@pbp-bg-color, 7%);
+            color: darken(@pbp-fg-color, 4%);
             border-width: 0;
         }
     }
@@ -125,8 +143,8 @@ a {
     }
 }
 
-p {
-    margin: 0 0 20.5px;
+pre, p {
+    margin: 10.25px 0 20.5px;
 }
 
 code {
