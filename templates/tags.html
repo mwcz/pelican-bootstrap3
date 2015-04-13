@@ -12,7 +12,7 @@
     <div class="pbp-barchart">
 
         <div class="pbp-barchart-labels">
-            {%- for tag, articles in sorted_tags %}
+            {%- for tag, articles in tags|sort %}
             <a href="/{{ tag.url }}">
                 <span class="pbp-barchart-bar">{{ tag }}</span>
             </a>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="pbp-barchart-values">
-            {%- for tag, articles in sorted_tags %}
+            {%- for tag, articles in tags|sort %}
             <a href="/{{ tag.url }}">
                 <span class="pbp-barchart-bar" style="width:{{ 100 * articles|count / most_tag_count }}%">{{ articles|count }}</span>
             </a>
