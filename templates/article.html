@@ -19,9 +19,24 @@
         {% include "includes/neighbors.html" %}
     #}
         {# {% include "includes/article_info.html" %} #}
-        {% include "includes/addthis.html" %}
-        {% include "includes/related_posts.html" %}
-        {% include "includes/comments.html" %}
+
+        <footer>
+            <small>
+                This article was published on
+                <time datetime="{{ article.locale_date }}" pubdate="">{{ article.locale_date }}</time>
+                by <a href="https://twitter.com/mwcz" title="mwcz twitter" rel="author">{{ article.author }}</a>
+                and tagged with
+                {% for tag in article.tags %}
+                    {% if loop.last %} and{% endif %}
+                    <a href="{{ SITEURL }}/tag/{{ tag }}" rel="category">{{ tag }}</a>{#
+                    #}{% if not loop.last and loop.length > 2 %},{% endif %}
+                {% endfor %}.
+            </small>
+        </footer>
+
+        {#  {% include "includes/addthis.html" %}        #}
+        {#  {% include "includes/related_posts.html" %}  #}
+        {#  {% include "includes/comments.html" %}       #}
     </article>
 
 {% endblock %}
