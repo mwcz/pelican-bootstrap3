@@ -1,0 +1,11 @@
+{% macro write(article) -%}
+
+<ul class="gallery">
+    {% for image in article.galleryimages %}
+    <a class="{{ article.album }}" href="{{ SITEURL }}/static/images/gallery/900x/gallery/{{ article.album }}/{{ image }}">
+        <img src="{{ SITEURL }}/static/images/gallery/150x/gallery/{{ article.album }}/{{ image }}">
+    </a>
+    {% endfor %}
+</ul>
+
+{%- endmacro %}
