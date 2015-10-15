@@ -26,14 +26,14 @@ body {
 
 blockquote cite::before {
     content: '—';
-    color: lighten(@pbp-bg-color, 16%);
+    color: darken(@pbp-bg-color, 16%);
 }
 
 /*********************************************************************
  *                    bootstrap.flatly overrides                     *
  *********************************************************************/
 blockquote {
-    border-left: 5px solid lighten(@pbp-bg-color, 8%);
+    border-left: 5px solid darken(@pbp-bg-color, 8%);
     color: @pbp-pale-blue;
     p {
         font-weight: 400;
@@ -57,13 +57,13 @@ a {
     text-decoration : none !important;
     border-bottom   : 1px dotted;
     color           : @pbp-pale-blue;
-    outline-color   : lighten(@pbp-bg-color, 32%);
-    border-color    : lighten(@pbp-bg-color, 16%);
+    outline-color   : darken(@pbp-bg-color, 32%);
+    border-color    : darken(@pbp-bg-color, 16%);
 
     &:hover         {
         color           : lighten(@pbp-pale-blue, 16%);
         border-bottom   : 1px solid;
-        border-color    : lighten(@pbp-bg-color, 32%);
+        border-color    : darken(@pbp-bg-color, 32%);
     }
     &:focus {
         color         : lighten(@pbp-pale-blue, 16%);
@@ -87,18 +87,18 @@ a {
 }
 
 .btn-default {
-    background-color : darken(@pbp-bg-color, 4%);
-    border-color     : lighten(@pbp-bg-color, 8%);
+    background-color : lighten(@pbp-bg-color, 4%);
+    border-color     : darken(@pbp-bg-color, 8%);
 
     &:hover,
     &:focus {
-        background-color : lighten(@pbp-bg-color, 0%);
-        border-color     : lighten(@pbp-bg-color, 8%);
+        background-color : darken(@pbp-bg-color, 0%);
+        border-color     : darken(@pbp-bg-color, 8%);
     }
 
     &:active {
-        background-color : darken(@pbp-bg-color, 4%);
-        border-color     : lighten(@pbp-bg-color, 8%);
+        background-color : lighten(@pbp-bg-color, 4%);
+        border-color     : darken(@pbp-bg-color, 8%);
     }
 }
 
@@ -110,13 +110,13 @@ a {
 
     & > li > a,
     & > li > span {
-        background-color: darken(@pbp-bg-color, 4%);
+        background-color: lighten(@pbp-bg-color, 4%);
         border-width: 0;
 
         &:hover,
         &:focus {
-            background-color: lighten(@pbp-bg-color, 4%);
-            color: darken(@pbp-fg-color, 4%);
+            background-color: darken(@pbp-bg-color, 4%);
+            color: lighten(@pbp-fg-color, 4%);
         }
     }
 
@@ -127,8 +127,8 @@ a {
         & > span:hover,
         & > a:focus,
         & > span:focus {
-            background-color: darken(@pbp-bg-color, 7%);
-            color: darken(@pbp-fg-color, 4%);
+            background-color: lighten(@pbp-bg-color, 7%);
+            color: lighten(@pbp-fg-color, 4%);
             border-width: 0;
         }
     }
@@ -140,9 +140,9 @@ a {
         & > span:hover,
         & > a:focus,
         & > span:focus {
-            background-color: darken(@pbp-bg-color, 4%);
+            background-color: lighten(@pbp-bg-color, 4%);
             border-width: 0;
-            color: lighten(@pbp-bg-color, 4%);
+            color: darken(@pbp-bg-color, 4%);
         }
     }
 }
@@ -157,8 +157,8 @@ code {
 }
 pre, .highlight, code, pre code {
     font-family      : @pbp-font-mono;
-    background-color : darken(@pbp-bg-color, 5%);
-    color            : darken(@pbp-fg-color, 5%);
+    background-color : lighten(@pbp-bg-color, 5%);
+    color            : lighten(@pbp-fg-color, 5%);
     border           : none;
 }
 
@@ -173,7 +173,7 @@ pre, .highlight, code, pre code {
 }
 
 hr {
-    border-color: lighten(@pbp-bg-color, 16%);
+    border-color: darken(@pbp-bg-color, 16%);
 }
 
 /*********************************************************************
@@ -206,7 +206,7 @@ article, section {
 
     & > footer {
         text-align       : center;
-        background-color : darken(@pbp-bg-color, 4%);
+        background-color : lighten(@pbp-bg-color, 4%);
         padding          : @padding-base-horizontal @padding-large-horizontal;
     }
 }
@@ -218,8 +218,8 @@ article, section {
 }
 
 .highlight pre {
-    background-color : darken(@pbp-bg-color, 16%);
-    color            : darken(@pbp-fg-color, 16%);
+    background-color : lighten(@pbp-bg-color, 16%);
+    color            : lighten(@pbp-fg-color, 16%);
     border           : none;
     border-radius    : 0;
 }
@@ -316,14 +316,14 @@ article, section {
     font-family     : @pbp-font-title;
     white-space     : nowrap;
 
-    color           : lighten(@pbp-bg-color, 32%);
+    color           : darken(@pbp-bg-color, 32%);
     text-decoration : none;
     border          : none;
 
     transition      : 0.416s ease-out color;
 
     &:hover {
-        color : lighten(@pbp-bg-color, 70%);
+        color : darken(@pbp-bg-color, 70%);
     }
 
     .pbp-dot {
@@ -368,7 +368,7 @@ article, section {
     // .larger {
     //     width      : 100%;
     //     height     : 100%;
-    //     border     : 6px solid lighten(@pbp-bg-color, 16%);
+    //     border     : 6px solid darken(@pbp-bg-color, 16%);
     //     background : transparent;
     //     z-index    : 1;
     // }
