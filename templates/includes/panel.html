@@ -6,40 +6,53 @@
     body_text,
     footer_image,
     footer_text,
-    link_url
+    link_url,
+    demo_url,
+    source_url
 ) %}
 
-<div class="pbp-project-summary">
-        <div class="pbp-project-summary-image">
-        {% if header_image %}
-            {% if link_url %}
-            <a href="{{ link_url }}">
-            {% endif %}
-                <img src="{{ header_image }}" alt="{{ body_title }} icon" class="img-responsive" />
-            {% if link_url %}
-            </a>
-            {% endif %}
+<article class="pbp-project-summary">
+    <div class="pbp-project-summary-image">
+    {% if header_image %}
+        {% if link_url %}
+        <a href="{{ link_url }}">
         {% endif %}
-        {% if header_text %}
-            <p>{{ header_text }}</p>
+            <img src="{{ header_image }}" alt="{{ body_title }} icon" class="img-responsive" />
+        {% if link_url %}
+        </a>
         {% endif %}
-        </div>
-        <div class="pbp-project-summary-description">
-            {% if link_url %}
-            <a href="{{ link_url }}">
-            {% endif %}
-                <h3>{{ body_title }}</h3>
-            {% if link_url %}
-            </a>
-            {% endif %}
+    {% endif %}
+    {% if header_text %}
+        <p>{{ header_text }}</p>
+    {% endif %}
+    </div>
+    <div class="pbp-project-summary-description">
+        {% if link_url %}
+        <a href="{{ link_url }}">
+        {% endif %}
+            <h3>{{ body_title }}</h3>
+        {% if link_url %}
+        </a>
+        {% endif %}
 
-            {% if body_image %}
-            <img src="{{ body_image }}" alt="{{ body_title }} icon" class="img-responsive" />
-            {% endif %}
-            {% if body_text %}
-            <p>{{ body_text }}</p>
-            {% endif %}
-        </div>
-</div>
+        {% if body_image %}
+        <img src="{{ body_image }}" alt="{{ body_title }} icon" class="img-responsive" />
+        {% endif %}
+        {% if body_text %}
+        <p>{{ body_text }}</p>
+        {% endif %}
+    </div>
+    <div class="pbp-project-summary-footer">
+        {% if link_url %}
+            <a class="pbp-project-summary-about-link" href="{{ link_url }}">About</a>
+        {% endif %}
+        {% if source_url %}
+            <a class="pbp-project-summary-source-link" href="{{ source_url }}">Source</a>
+        {% endif %}
+        {% if demo_url %}
+            <a class="pbp-project-summary-demo-link" href="{{ demo_url }}">Play</a>
+        {% endif %}
+    </div>
+</article>
 
 {% endmacro %}
