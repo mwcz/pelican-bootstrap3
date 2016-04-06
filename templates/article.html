@@ -16,7 +16,7 @@
             <nav class="toc">{{ article.toc }}</nav>
             {# add article content, but swap out the string {{ gallery }} for
             the gallery html for this article #}
-            {{ article.content | replace( '{{ gallery }}', gallery.write( article ) ) }}
+            {{ article.content | replace( '$GALLERY', gallery.write( article ) ) }}
         </div>
 
         <!-- /.entry-content -->
