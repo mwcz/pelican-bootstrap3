@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} - {{SITENAME}}{% endblock %}
 {% block content %}
-    <section id="content" class="body">
+    <article id="content" class="body">
         <header class="page-header">
             <h1 class="entry-title">{{ page.title }}</h1>
         </header>
@@ -13,6 +13,6 @@
         <div class="entry-content">
             {{ page.content }}
         </div>
-    </section>
+    </article>
 {% include 'includes/comments.html' %}
 {% endblock %}
