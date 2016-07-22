@@ -49,7 +49,11 @@
 
     <script type="text/javascript">
       DiscourseEmbed = { discourseUrl: 'http://discourse.palebluepixel.org/',
+        {% if article %}
+                         discourseEmbedUrl: '{{ SITEURL }}/{{ article.url }}'};
+        {% elif page %}
                          discourseEmbedUrl: '{{ SITEURL }}/{{ page.url }}'};
+        {% endif %}
 
       (function() {
         var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
