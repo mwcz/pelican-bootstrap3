@@ -1,18 +1,18 @@
 {% macro write(article) -%}
 
-<ul class="gallery">
+<div class="gallery">
     {% for image in article.galleryimages %}
-    <li>
-        <a class="{{ article.album }}" href="{{ SITEURL }}/static/images/gallery/900x/gallery/{{ article.album }}/{{ image }}">
+    <div class="gallery-image">
+        <a class="{{ article.album }}" href="{{ SITEURL }}/static/images/gallery/1200x/gallery/{{ article.album }}/{{ image }}">
             <img src="{{ SITEURL }}/static/images/gallery/150x/gallery/{{ article.album }}/{{ image }}">
         </a>
-    </li>
+    </div>
     {% endfor %}
-</ul>
+</div>
 
 <script type="text/javascript" charset="utf-8">
     $(function () {
-        $('ul.gallery li a').lightbox();
+        $('.gallery .gallery-image a').lightbox();
     });
 </script>
 
