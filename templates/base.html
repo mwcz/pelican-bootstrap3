@@ -55,23 +55,7 @@
     <![endif]-->
 
     <!-- <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'> -->
-    {% if DEBUG %}
-        {# Pull in CSS files individually in debug mode #}
-        {% assets "pbp-css" %}
-            <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
-        {% endassets %}
-        {% assets "pbp-prism-css" %}
-            <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
-        {% endassets %}
-    {% else %}
-        {# Concatenate and minify all CSS files in production mode #}
-        {% assets output="css/styles.min.css", "pbp-css" %}
-            <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
-        {% endassets %}
-        {% assets output="css/prism.min.css", "pbp-prism-css" %}
-            <link href="{{ SITEURL }}/{{ ASSET_URL }}" rel="stylesheet">
-        {% endassets %}
-    {% endif %}
+    <link href="{{ SITEURL }}/theme/css/styles.min.css" rel="stylesheet">
 
     <!-- JavaScript plugins (requires jQuery) -->
     <script src="{{ SITEURL }}/theme/js/jquery.min.js"></script>
