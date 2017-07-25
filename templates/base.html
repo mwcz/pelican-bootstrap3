@@ -61,6 +61,7 @@
 
     <!-- JavaScript plugins (requires jQuery) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+    <script>window.jQuery = $;</script>
 
     {% if FEED_ALL_ATOM %}
     <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"

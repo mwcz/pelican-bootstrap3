@@ -26,6 +26,7 @@
         <p>{{ header_text }}</p>
     {% endif %}
     </div>
+    {% if body_text or body_title %}
     <div class="pbp-project-summary-description">
         {% if link_url %}
         <a href="{{ link_url }}">
@@ -42,6 +43,7 @@
         <p>{{ body_text }}</p>
         {% endif %}
     </div>
+    {% endif %}
     <!-- <div class="pbp-project-summary-footer"> -->
     <!--     {% if link_url %} -->
     <!--         <a class="pbp-project-summary-about-link" href="{{ link_url }}">About</a> -->

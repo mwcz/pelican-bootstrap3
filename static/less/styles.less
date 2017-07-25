@@ -237,7 +237,13 @@ article, section {
     border-radius    : 0;
 }
 
+.pbp-thumbnail {
+    border: 2px solid black;
+}
 .pbp-post-thumbnail {
+    img {
+        .pbp-thumbnail();
+    }
     .make-xs-column(12);
     .make-sm-column(4);
     .make-md-column(4);
@@ -274,7 +280,7 @@ article, section {
     .pbp-project-summary-image {
         display: flex;
         justify-content: center;
-        border: 2px solid black;
+        .pbp-thumbnail();
 
         a {
             border: none;
@@ -491,6 +497,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family     : @pbp-font-title;
     color           : darken(@pbp-pale-blue, 16%);
     margin-top: 32px;
+    &:first-child {
+        margin-top: 0;
+    }
 }
 
 // for blog post list
