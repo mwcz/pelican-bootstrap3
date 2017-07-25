@@ -159,6 +159,9 @@ a {
 
 pre, p, ul {
     margin: 10.25px 0 20.5px;
+    &:last-child {
+        margin-bottom: 0px;
+    }
 }
 
 code {
@@ -253,8 +256,8 @@ article, section {
     flex-flow: column wrap;
     justify-content: flex-start;
     width: percentage(1/3);
-    background: darken(@pbp-bg-color, 2%);
-    border: 6px solid @pbp-bg-color;
+    // background: darken(@pbp-bg-color, 2%);
+    border: 1px solid @pbp-bg-color;
     margin: 0;
 
     @media (max-width: 800px) {
@@ -275,9 +278,10 @@ article, section {
         a {
             border: none;
         }
-
-        img {
-            height: 140px !important;
+    }
+    .pbp-project-summary-description {
+        h3 {
+            margin-top: @padding-large-vertical;
         }
     }
     .pbp-project-summary-footer {
