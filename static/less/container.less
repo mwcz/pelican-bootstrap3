@@ -1,0 +1,22 @@
+body {
+    font-family      : @pbp-font-body;
+    font-size        : @pbp-base-font-size;
+    background-color : @pbp-bg-color;
+    color            : @pbp-fg-color;
+    margin           : 0;
+    padding          : @padding-base-vertical 0;
+
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 1400px;
+    }
+}

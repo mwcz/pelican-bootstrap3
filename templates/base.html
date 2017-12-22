@@ -11,6 +11,9 @@
     <meta name="theme-color" content="#171717">
     <link rel="icon" type="image/png" href="/static/images/favicon.png">
 
+    {# font #}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     {% if USE_OPEN_GRAPH is not defined %}
         {% set USE_OPEN_GRAPH = True %}
     {% endif %}
@@ -81,16 +84,10 @@
 <div class="container">
     <nav class="pbp-navbar" role="navigation">
         <a href="{{ SITEURL }}" title="{{ SITENAME }} homepage" id="pbp-logo">
-            PALE BL<span class="pbp-dot">&middot;</span>UE PIXEL
+            clayto<span class="pbp-dot">&middot;</span>com
         </a>
-        <ul class="pbp-navitems">
-            <li class="pbp-navitem">
-                <a href="/projects" class="pbp-navlink">Projects</a>
-            </li>
-            <li class="pbp-navitem">
-                <a href="/posts" class="pbp-navlink">Blog</a>
-            </li>
-        </ul>
+        <a href="/projects" class="pbp-navlink">Projects</a>
+        <a href="/posts" class="pbp-navlink">Blog</a>
     </nav>
 </div>
 {% endblock header %}
@@ -104,7 +101,7 @@
 {% endblock %}
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
+<!-- <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script> -->
 <script src="{{ SITEURL }}/theme/lib/prism/prism.js"></script>
 
 {% include 'includes/disqus_script.html' %}

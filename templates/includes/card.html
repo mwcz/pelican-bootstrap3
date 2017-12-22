@@ -1,0 +1,21 @@
+{% macro write(
+    href,
+    title,
+    background,
+    summary,
+    id
+) %}
+
+<section style="
+    {% if background %}background: url({{ background }}){% endif %}
+    {% if id %}grid-area: {{ id }};{% endif %}
+    ">
+    <a href="{{ href }}">
+        <span>{{ title }}</span>
+        {% if summary %}
+        <p>{{ summary }}</p>
+        {% endif %}
+    </a>
+</section>
+
+{% endmacro %}
