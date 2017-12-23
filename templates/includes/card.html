@@ -2,20 +2,20 @@
     href,
     title,
     background,
+    background_align,
     summary,
     id
 ) %}
 
-<section style="
-    {% if background %}background: url({{ background }}){% endif %}
-    {% if id %}grid-area: {{ id }};{% endif %}
-    ">
-    <a href="{{ href }}">
-        <span>{{ title }}</span>
-        {% if summary %}
-        <p>{{ summary }}</p>
-        {% endif %}
-    </a>
+<section class="card">
+    <a class="card-link" href="{{ href }}"></a>
+    <h1 class="card-title">
+        {{ title }}
+    </h1>
+    <img class="card-bg {{ 'card-bg-'+background_align if background_align else '' }}" src="{{ background }}">
+    <div class="card-border-outer"></div>
+    <div class="card-border-inner"></div>
 </section>
+
 
 {% endmacro %}

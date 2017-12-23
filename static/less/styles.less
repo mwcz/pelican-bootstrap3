@@ -3,6 +3,7 @@
 
 //
 
+@import "reset";
 @import "colors";
 @import "variables";
 @import "mixins";
@@ -12,6 +13,7 @@
 @import "barchart";
 @import "code";
 @import "homepage-grid";
+@import "card";
 
 @pbp-logo-transition-timer: 0.1618s;
 
@@ -120,7 +122,7 @@ article, section {
 
             outline: 3px solid darken(@pbp-bg-color, 2%);
 
-            color            : @pbp-red;
+            color            : @pbp-blue;
             background-color : lighten(@pbp-bg-color, 6%);
             border-color: darken(@pbp-bg-color, 2%);
             border-width: 0;
@@ -155,7 +157,7 @@ section h1 {
 
 h1, h2, h3, h4, h5, h6 {
     font-family     : @pbp-font-title;
-    color           : darken(@pbp-red, 16%);
+    color           : darken(@pbp-blue, 16%);
     margin-top: 32px;
     &:first-child {
         margin-top: 0;
@@ -168,7 +170,7 @@ article {
     // for time element direct children of article (ie, blog post list, not
     // blog post full)
     & > .meta {
-        color     : darken(desaturate(@pbp-red, 100%), 32%);
+        color     : darken(desaturate(@pbp-blue, 100%), 32%);
         font-size : 12px;
         padding   : 0;
         margin    : 0;
@@ -189,7 +191,7 @@ figure {
     figcaption {
         text-align : center;
         font-size  : 0.8 * @pbp-base-font-size;
-        color      : darken(@pbp-red, 16%);
+        color      : darken(@pbp-blue, 16%);
 
     }
     [role=math] {

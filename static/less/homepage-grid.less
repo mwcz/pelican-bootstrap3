@@ -1,19 +1,10 @@
+@import "card";
+
 .latest-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    grid-template-areas:
-        "a a b"
-        "c d d"
-        "c e e";
+    .card-grid();
 
-    section {
-        background: black;
-    }
-
-    & > section > a {
-        display: block;
-        height: 100%;
-        width: 100%;
-    }
+    // grid-template-areas:
+    //     "a a b"
+    //     "c d d"
+    //     "c e e";
 }
