@@ -8,13 +8,22 @@
 ) %}
 
 <section class="card">
+    {% if href %}
     <a class="card-link" href="{{ href }}"></a>
+    {% endif %}
+    {% if title %}
     <h1 class="card-title">
         {{ title }}
     </h1>
+    {% endif %}
+    {% if summary %}
+    <p>{{ summary }}</p>
+    {% endif %}
+    {% if background %}
     <img class="card-bg {{ 'card-bg-'+background_align if background_align else '' }}" src="{{ background }}">
     <div class="card-border-outer"></div>
     <div class="card-border-inner"></div>
+    {% endif %}
 </section>
 
 
