@@ -4,19 +4,57 @@ body {
     background-color : @pbp-bg-color;
     color            : @pbp-fg-color;
     margin           : 0;
-    padding          : @padding-base-vertical 0;
+    padding          : 0;
 
     // display: flex;
     // justify-content: center;
     // align-items: center;
 }
 
-.container {
-    margin: 0 auto;
+.pbp-narrow() {
+    width: @pbp-text-width;
+    max-width: 100%;
+}
+.pbp-wide() {
+    width: @pbp-image-width;
+    max-width: 100%;
 }
 
-@media (min-width: 768px) {
-    .container {
-        max-width: 1400px;
+.pbp-fullwidth() {
+    width: 100%;
+}
+
+.container {
+    padding: 0 12px 0;
+    // @media (min-width: 768px) {
+    // }
+
+    // each container has a child element, typically an article or section.
+    // those are full width, but their children should be centered flex
+    // columns.  text content within them should be fairly narrow and imagery
+    // (img,video,figure,canvas) should be wider
+    & > article,
+    & > nav,
+    & > section {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        // assume all elements are textual (p, h1, etc)
+        & > *,
+        .pbp-narrow {
+            .pbp-narrow();
+        }
+
+        // override for visual elements.
+        // I'm removing figure, video, and canvas for now.  My older posts don't look good because they have erratically sized images.
+        .pbp-wide {
+            .pbp-wide();
+        }
+
+        .pbp-fullwidth {
+            .pbp-fullwidth();
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-@import (inline) "../css/sanitize.css";
+// @import (inline) "../css/sanitize.css";
 @import "elements/elements";
 
 //
@@ -13,9 +13,12 @@
 @import "barchart";
 @import "code";
 @import "homepage-grid";
-@import "card";
-
-@pbp-logo-transition-timer: 0.1618s;
+@import "glass-card";
+@import "navbar";
+@import "links";
+@import "typography";
+@import "lists";
+@import "hr";
 
 blockquote cite::before {
     content: '—';
@@ -41,21 +44,19 @@ img, video {
 article, section {
     & > footer {
         text-align       : center;
-        background-color : darken(@pbp-bg-color, 4%);
+        background-color : darken(@pbp-bg-color, 50%);
         padding          : @padding-base-horizontal @padding-large-horizontal;
+    }
+    img {
+        max-width : 100%;
+        height    : auto;
+        margin    : 0 auto;
     }
 }
 
 .pbp-article-footer {
     margin-bottom: @padding-large-vertical;
 }
-
-.entry-content img {
-    max-width : 100%;
-    height    : auto;
-    margin    : 0 auto;
-}
-
 
 .pbp-thumbnail {
     border: 2px solid black;
@@ -136,7 +137,6 @@ article, section {
     flex-wrap: wrap;
 }
 
-@import "navbar";
 
 /*********************************************************************
 *                              Header                               *
@@ -150,14 +150,13 @@ article, section {
 article h1,
 section h1 {
     margin-top    : 0;
-    margin-bottom : 26px;
+    margin-bottom : @padding-large-vertical * 2;
     text-align    : center;
     font-size     : @pbp-base-font-size * 1.8;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family     : @pbp-font-title;
-    color           : darken(@pbp-blue, 16%);
     margin-top: 32px;
     &:first-child {
         margin-top: 0;
@@ -187,12 +186,11 @@ article {
  *********************************************************************/
 
 figure {
-    margin: 16px 0;
     figcaption {
         text-align : center;
         font-size  : 0.8 * @pbp-base-font-size;
-        color      : darken(@pbp-blue, 16%);
-
+        margin-top: 6px;
+        font-style: italic;
     }
     [role=math] {
         padding : 0.5rem 0;

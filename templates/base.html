@@ -81,14 +81,19 @@
 </head>
 <body>
 {% block header %}
-<div class="container">
-    <nav class="pbp-navbar" role="navigation">
-        <a href="{{ SITEURL }}" title="{{ SITENAME }} homepage" id="pbp-logo">
-            PALE BL<span class="pbp-dot">&middot;</span>UE PIXEL
-        </a>
-        <a href="/projects" class="pbp-navlink">Projects</a>
-        <a href="/posts" class="pbp-navlink">Blog</a>
-    </nav>
+<div class="pbp-navbar-container">
+    <div class="container">
+        <nav class="pbp-navbar" role="navigation">
+            <div class="pbp-narrow">
+                <a href="{{ SITEURL }}" title="{{ SITENAME }} homepage" id="pbp-logo">
+                    PALE BL<span class="pbp-dot">&middot;</span>UE PIXEL
+                </a>
+                <div>Projects | Blog | Tw | Gh</div>
+                <!-- <a href="/projects" class="pbp-navlink">Projects</a> -->
+                <!-- <a href="/posts" class="pbp-navlink">Blog</a> -->
+            </div>
+        </nav>
+    </div>
 </div>
 {% endblock header %}
 <!-- /.navbar -->
