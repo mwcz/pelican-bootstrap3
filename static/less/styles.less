@@ -33,10 +33,6 @@ abbr {
  *                              Global                               *
  *********************************************************************/
 
-img, video {
-    .img-responsive();
-}
-
 /*********************************************************************
  *                               Posts                               *
  *********************************************************************/
@@ -48,10 +44,12 @@ article, section {
         padding          : @padding-base-horizontal @padding-large-horizontal;
     }
     img {
-        max-width : 100%;
-        height    : auto;
         margin    : 0 auto;
     }
+    img, video {
+        .img-responsive();
+    }
+
 }
 
 .pbp-article-footer {

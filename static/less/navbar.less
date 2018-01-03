@@ -29,24 +29,32 @@
         text-align: center;
 
         .pbp-navitems {
-            list-style: none;
-            margin: 0;
-            padding: 0 0 0 6px;
+            position: relative;
 
+            // colorize the nav items, text and images alike
+            &::before {
+                content: '';
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                mix-blend-mode: multiply;
+                background-color: @pbp-blue;
+            }
+
+            img {
+                height: 1em;
+            }
             .pbp-navitem {
                 margin: 0;
-                padding: 0 30px 0 0;
+                padding: 0 0 0 30px;
+                text-align: center;
+                text-transform: uppercase;
+                text-decoration: none;
                 &:last-child {
                     padding: 0;
-                }
-                @media (max-width: 768px) {
-                    padding: 0;
-                    margin-top: 12px;
-                    text-align: center;
-                }
-                .pbp-navlink {
-                    #pbp-logo();
-                    letter-spacing: 0;
                 }
             }
         }
