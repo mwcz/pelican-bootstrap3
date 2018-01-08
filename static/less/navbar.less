@@ -3,6 +3,7 @@
  *********************************************************************/
 
 @import "variables";
+@import "container";
 
 .pbp-dot-idle() {
     // max-width : 0;
@@ -23,10 +24,15 @@
     width: 100%;
     margin-bottom : @padding-large-vertical * 2;
 
-    .pbp-navbar {
-        padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-        text-align: center;
+    .pbp-navbar {
+        .pbp-narrow();
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
 
         .pbp-navitems {
             position: relative;
@@ -93,6 +99,11 @@
     }
 
     &::after {
+        @gradient-top-opacity: 0%;
+        @gradient-top: rgba(0,0,0,@gradient-top-opacity);
+        @gradient-bottom-opacity: 64%;
+        @gradient-bottom: rgba(0,0,0,@gradient-bottom-opacity);
+
         content    : "";
         position   : absolute;
         z-index    : 10;
@@ -100,12 +111,12 @@
         left       : 0;
         width      : 100%;
         height     : 100%;
-        background : -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, #000 100%); /* FF3.6+ */
-        background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,#000)); /* Chrome,Safari4+ */
-        background : -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,#000 100%); /* Chrome10+,Safari5.1+ */
-        background : -o-linear-gradient(top,  rgba(0,0,0,0) 0%,#000 100%); /* Opera 11.10+ */
-        background : -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,#000 100%); /* IE10+ */
-        background : linear-gradient(to bottom,  rgba(0,0,0,0) 0%,#000 100%); /* W3C */
+        background : -moz-linear-gradient(top,  @gradient-top @gradient-top-opacity, @gradient-bottom @gradient-bottom-opacity); /* FF3.6+ */
+        background : -webkit-gradient(linear, left top, left bottom, color-stop(@gradient-top-opacity,@gradient-top), color-stop(@gradient-bottom-opacity,@gradient-bottom)); /* Chrome,Safari4+ */
+        background : -webkit-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* Chrome10+,Safari5.1+ */
+        background : -o-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* Opera 11.10+ */
+        background : -ms-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* IE10+ */
+        background : linear-gradient(to bottom,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* W3C */
     }
 
     // these were written for the dynamic hover svg logo.  might bring it back
