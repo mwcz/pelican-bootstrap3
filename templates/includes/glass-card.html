@@ -10,7 +10,7 @@
 <section class="glass-card">
     <div class="glass-card-ratio">
         {% if href %}
-        <a class="glass-card-link" href="{{ href }}"></a>
+        <a class="glass-card-link" href="{{ SITEURL }}/{{ href }}"></a>
         {% endif %}
         {% if background %}
         <img class="glass-card-bg {{ 'glass-card-bg-'+background_align if background_align else '' }}" src="{{ background }}">

@@ -7,6 +7,7 @@
 @import "colors";
 @import "variables";
 @import "mixins";
+@import "font-imports";
 @import "fonts";
 @import "no-scrollbar-shift";
 @import "container";
@@ -19,6 +20,7 @@
 @import "typography";
 @import "lists";
 @import "hr";
+@import "pagination";
 
 blockquote cite::before {
     content: '—';
@@ -150,15 +152,7 @@ section h1 {
     margin-top    : 0;
     margin-bottom : @padding-large-vertical * 2;
     text-align    : center;
-    font-size     : @pbp-base-font-size * 1.8;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family     : @pbp-font-title;
-    margin-top: 32px;
-    &:first-child {
-        margin-top: 0;
-    }
+    font-size     : @pbp-base-font-size * 2.0 * @pbp-title-size-adjust;
 }
 
 // for blog post list

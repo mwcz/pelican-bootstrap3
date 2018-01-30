@@ -24,12 +24,17 @@ body {
     max-width: 100%;
 }
 
+.pbp-verywide() {
+    width: 80%;
+}
+
 .pbp-fullwidth() {
     width: 100%;
 }
 
 .container {
     padding: 0 12px 0;
+    margin-top : @padding-large-vertical * 2;
     // @media (min-width: 768px) {
     // }
 
@@ -56,9 +61,17 @@ body {
             .pbp-wide();
         }
 
+        .pbp-verywide {
+            .pbp-verywide();
+        }
+
         .pbp-fullwidth {
             .pbp-fullwidth();
         }
 
     }
+}
+
+#fireflies-container {
+    margin-top : -@padding-large-vertical * 2;
 }

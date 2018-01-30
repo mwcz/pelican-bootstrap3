@@ -4,6 +4,7 @@
 
 @import "variables";
 @import "container";
+@import "fonts";
 
 .pbp-dot-idle() {
     // max-width : 0;
@@ -22,49 +23,88 @@
 .pbp-navbar-container {
     background-color: #000;
     width: 100%;
-    margin-bottom : @padding-large-vertical * 2;
 
     display: flex;
     align-items: center;
     flex-direction: column;
 
     .pbp-navbar {
+        position: relative;
+        &::after {
+            .nav-gradient();
+        }
+
         .pbp-narrow();
-        padding: 0;
+        padding: 0.8*@padding-large-vertical 0 0.6*@padding-large-vertical;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 0.6fr 0.4fr;
 
         .pbp-navitems {
             position: relative;
+            display: flex;
+            flex-direction: row;
+            // align-items: center;
+            justify-content: space-between;
+
+            font-family: @pbp-font-nav;
+            font-size: @pbp-base-font-size;
 
             // colorize the nav items, text and images alike
-            &::before {
-                content: '';
-                pointer-events: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                mix-blend-mode: multiply;
-                background-color: @pbp-blue;
-            }
+            // &::before {
+            //     content: '';
+            //     pointer-events: none;
+            //     position: absolute;
+            //     top: 0;
+            //     right: 0;
+            //     bottom: 0;
+            //     left: 0;
+            //     mix-blend-mode: multiply;
+            //     background-color: 
+            // }
 
             img {
-                height: 1em;
+                height: 0.7em;
             }
             .pbp-navitem {
+                color: lighten(@pbp-blue,6%);
+
                 margin: 0;
-                padding: 0 0 0 30px;
-                text-align: center;
+                text-align: right;
                 text-transform: uppercase;
                 text-decoration: none;
+                display: flex; // just to vertically center the images inside the links, would use font icons instead if the font files weren't so big
                 &:last-child {
                     padding: 0;
                 }
+                // &[class^="icon-"], &[class*=" icon-"] {
+                //     font-size: 0.7em; // make icons a bit smaller
+                // }
             }
         }
     }
+}
+
+.nav-gradient() {
+    @gradient-top-opacity: 0%;
+    @gradient-top: rgba(0,0,0,@gradient-top-opacity);
+    @gradient-bottom-opacity: 54%;
+    @gradient-bottom: rgba(0,0,0,@gradient-bottom-opacity);
+
+    content    : "";
+    position   : absolute;
+    z-index    : 10;
+    top        : 0;
+    right      : 0;
+    bottom     : 0;
+    left       : 0;
+    background : -moz-linear-gradient(top,  @gradient-top @gradient-top-opacity, @gradient-bottom @gradient-bottom-opacity); /* FF3.6+ */
+    background : -webkit-gradient(linear, left top, left bottom, color-stop(@gradient-top-opacity,@gradient-top), color-stop(@gradient-bottom-opacity,@gradient-bottom)); /* Chrome,Safari4+ */
+    background : -webkit-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* Chrome10+,Safari5.1+ */
+    background : -o-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* Opera 11.10+ */
+    background : -ms-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* IE10+ */
+    background : linear-gradient(to bottom,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* W3C */
+
+    pointer-events: none;
 }
 
 #pbp-logo {
@@ -72,10 +112,8 @@
     padding         : 0px;
     position        : relative;
 
-    letter-spacing  : 0.16em;
-    font-size       : 1.3em;
-    line-height     : 1.5;
-    font-family     : @pbp-font-title;
+    font-size: @pbp-base-font-size;
+    font-family     : @pbp-font-nav;
     white-space     : nowrap;
 
     color           : lighten(@pbp-bg-color, 64%);
@@ -97,77 +135,4 @@
         color       : saturate(@pbp-blue, 100%);
         z-index     : 20;
     }
-
-    &::after {
-        @gradient-top-opacity: 0%;
-        @gradient-top: rgba(0,0,0,@gradient-top-opacity);
-        @gradient-bottom-opacity: 64%;
-        @gradient-bottom: rgba(0,0,0,@gradient-bottom-opacity);
-
-        content    : "";
-        position   : absolute;
-        z-index    : 10;
-        top        : 0;
-        left       : 0;
-        width      : 100%;
-        height     : 100%;
-        background : -moz-linear-gradient(top,  @gradient-top @gradient-top-opacity, @gradient-bottom @gradient-bottom-opacity); /* FF3.6+ */
-        background : -webkit-gradient(linear, left top, left bottom, color-stop(@gradient-top-opacity,@gradient-top), color-stop(@gradient-bottom-opacity,@gradient-bottom)); /* Chrome,Safari4+ */
-        background : -webkit-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* Chrome10+,Safari5.1+ */
-        background : -o-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* Opera 11.10+ */
-        background : -ms-linear-gradient(top,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* IE10+ */
-        background : linear-gradient(to bottom,  @gradient-top @gradient-top-opacity,@gradient-bottom @gradient-bottom-opacity); /* W3C */
-    }
-
-    // these were written for the dynamic hover svg logo.  might bring it back
-    // at some point when browser support is better.
-    // 
-    // position: relative;
-    // height: 64px;
-    // width: 64px;
-    // display: block;
-
-    // .smaller {
-        //     width        : 2px;
-        //     height       : 2px;
-        //     background   : @pbp-blue;
-        //     border-color : @pbp-bg-color;
-        //     border       : none;
-        //     z-index      : 2;
-    // }
-    // .larger {
-        //     width      : 100%;
-        //     height     : 100%;
-        //     border     : 6px solid lighten(@pbp-bg-color, 16%);
-        //     background : transparent;
-        //     z-index    : 1;
-    // }
-
-    // .circle,
-    // .square {
-        //     position      : absolute;
-        //     left          : 50%;
-        //     top           : 50%;
-        //     .translate(-50%, -50%);
-        //     .transition(0.309s);
-    // }
-
-    // .circle {
-        //     .smaller;
-        //     border-radius: 50%;
-    // }
-    // .square {
-        //     .larger;
-    // }
-
-    // &:hover {
-        //     .circle {
-            //         .larger;
-        //     }
-        //     .square {
-            //         .smaller;
-        //     }
-    // }
-
 }
-
