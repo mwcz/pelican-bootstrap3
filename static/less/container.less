@@ -34,7 +34,6 @@ body {
 
 .container {
     padding: 0 12px 0;
-    margin-top : @padding-large-vertical * 2;
     // @media (min-width: 768px) {
     // }
 
@@ -48,6 +47,10 @@ body {
         display: flex;
         align-items: center;
         flex-direction: column;
+
+        &:first-child {
+            margin-top : @padding-large-vertical * 2;
+        }
 
         // assume all elements are textual (p, h1, etc)
         & > *,
@@ -73,5 +76,10 @@ body {
 }
 
 #fireflies-container {
-    margin-top : -@padding-large-vertical * 2;
+    // skip the top margin for fireflies, it should but up against the navbar
+    margin: 0 -12px 0;
+    #fireflies-canvas {
+        margin-bottom: @padding-large-vertical;
+        border-bottom: 1px solid lighten(@pbp-bg-color, 8%);
+    }
 }
